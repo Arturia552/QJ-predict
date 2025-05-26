@@ -1,0 +1,29 @@
+[package]
+name = "oil-machine-predict"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Polars生态系统 - 核心数据处理
+polars = { version = "0.48.1", features = [
+  "lazy",           # 惰性计算
+  "strings",        # 字符串处理
+  "temporal",       # 时间序列
+  "rolling_window", # 滚动窗口
+  "rank",           # 排序功能
+  "round_series",   # 数值舍入
+  "abs",            # 绝对值
+  "arg_where",      # 条件查询
+  "concat_str",     # 字符串拼接
+  "is_in",          # 包含检查
+  "dtype-i128"
+] }
+
+# 轻量级数值计算辅助库
+ndarray = "0.16"
+statrs = "0.17"
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.0", features = ["full"] }
+rayon = "1.8"
+anyhow = "1.0"
